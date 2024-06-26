@@ -66,7 +66,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  padding-top: 80px; /* Ajuste para evitar sobreposição com o header */
+  padding-top: 80px;
   box-sizing: border-box;
   width: 100%;
 }
@@ -119,7 +119,7 @@ main {
   }
 
   main {
-    padding-top: 120px; /* Ajustar o padding superior para evitar sobreposição */
+    padding-top: 120px;
   }
 
   .history h1 {

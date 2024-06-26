@@ -63,7 +63,7 @@ nav ul li a:hover {
 }
 
 main {
-  margin-top: 60px; /* Ajuste para não sobrepor o conteúdo sob o header fixo */
+  margin-top: 60px;
   padding: 20px;
   box-sizing: border-box;
 }
