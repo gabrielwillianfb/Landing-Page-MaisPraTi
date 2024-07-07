@@ -2,8 +2,8 @@ document.getElementById("btn-enviar").addEventListener("click", function (event)
   event.preventDefault();
 
   if (validateForm()) {
-    var modal = document.getElementById("modal");
-    var modalMessage = document.getElementById("modal-message");
+    let modal = document.getElementById("modal");
+    let modalMessage = document.getElementById("modal-message");
     modal.style.display = "block";
     modalMessage.textContent = "Obrigado por entrar em contato! Responderemos em breve.";
 
@@ -12,16 +12,16 @@ document.getElementById("btn-enviar").addEventListener("click", function (event)
 });
 
 function validateForm() {
-  var name = document.getElementById("name").value.trim();
-  var email = document.getElementById("email").value.trim();
-  var message = document.getElementById("message").value.trim();
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
 
   if (name.length < 3) {
     alert("Por favor, insira um nome válido (mínimo de 3 caracteres).");
     return false;
   }
 
-  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
     alert("Por favor, insira um email válido.");
     return false;

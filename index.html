@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Início</title>
-    <link rel="stylesheet" href="style-inicio.css" />
+    <link rel="stylesheet" href="./assets/css/style-index.css" />
   </head>
   <body>
     <header>
       <div class="logo">Casamentos Felizes</div>
       <nav>
         <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="historia.html">Nossa história</a></li>
-          <li><a href="galeria_eventos.html">Galeria de Eventos</a></li>
-          <li><a href="contato.html">Contate-nos</a></li>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#historia">Nossa história</a></li>
+          <li><a href="#galeria">Galeria de Eventos</a></li>
+          <li><a href="contato.html" class="ajax-link">Contate-nos</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-      <section class="intro">
+    <main id="main">
+      <section class="intro" id="inicio">
         <div class="text">
           <h1>Realizamos seu Evento dos Sonhos</h1>
           <h2>Transformamos Momentos em Memórias</h2>
@@ -27,7 +27,9 @@
             Somos especializados em planejar e realizar eventos inesquecíveis. De casamentos a
             aniversários, cuidamos de todos os detalhes para que seu evento seja perfeito.
           </p>
-          <button id="interessado"><a href="contato.html">Interessado?</a></button>
+          <button id="interessado">
+            <a href="contato.html" class="ajax-link">Interessado?</a>
+          </button>
         </div>
         <div class="image">
           <img
@@ -36,7 +38,65 @@
           />
         </div>
       </section>
+      <section class="history" id="historia">
+        <h1>Nossa História</h1>
+        <p>
+          Nossa empresa foi fundada com o objetivo de transformar sonhos em realidade. Desde a nossa
+          fundação, temos nos dedicado a criar eventos inesquecíveis, cuidando de todos os detalhes
+          para garantir que cada momento seja perfeito.
+        </p>
+        <p>
+          Especializados em casamentos, oferecemos um serviço completo que inclui planejamento,
+          organização e execução de eventos. Nossa equipe é composta por profissionais experientes e
+          apaixonados pelo que fazem, sempre prontos para transformar seu evento em um verdadeiro
+          conto de fadas.
+        </p>
+        <p>
+          Ao longo dos anos, tivemos a honra de participar de centenas de histórias de amor, criando
+          memórias que serão lembradas por toda a vida. Estamos ansiosos para fazer parte da sua
+          história e transformar seus sonhos em realidade.
+        </p>
+      </section>
+      <section class="gallery" id="galeria">
+        <h1>Eventos Realizados</h1>
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide">
+              <img src="./assets/imgs/casamento1.jpg" alt="Evento 1" />
+            </div>
+            <div class="slide">
+              <img src="./assets/imgs/casamento2.jpeg" alt="Evento 2" />
+            </div>
+            <div class="slide">
+              <img src="./assets/imgs/casamento3.jpeg" alt="Evento 3" />
+            </div>
+            <div class="slide">
+              <img src="./assets/imgs/casamento4.jpg" alt="Evento 4" />
+            </div>
+            <div class="slide">
+              <img src="./assets/imgs/casamento5.jpeg" alt="Evento 5" />
+            </div>
+            <div class="slide">
+              <img src="./assets/imgs/casamento6.jpg" alt="Evento 6" />
+            </div>
+          </div>
+          <button class="prev-button">&#10094;</button>
+          <button class="next-button">&#10095;</button>
+        </div>
+      </section>
     </main>
-    <script src="./script.js"></script>
+    <footer>
+      <div class="contact-details">
+        <h2>Informações de Contato</h2>
+        <p>
+          Entre em contato conosco para mais informações sobre nossos serviços de casamento. Estamos
+          aqui para tornar seu dia especial ainda mais memorável.
+        </p>
+        <p>Email: contato@casamentosfelizes.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+      </div>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
