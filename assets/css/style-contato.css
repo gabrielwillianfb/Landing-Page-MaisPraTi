@@ -145,7 +145,11 @@ main {
   max-width: 600px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  word-wrap: break-word; /* Quebra palavras longas */
+  white-space: pre-wrap; /* Quebra linhas e preserva espaços */
+  overflow-wrap: break-word; /* Quebra palavras longas para ajuste */
 }
+
 
 .close {
   color: #aaa;
@@ -159,6 +163,14 @@ main {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Adicionar rolagem se necessário */
+.modal-content {
+  max-height: 80vh; /* Altura máxima da janela do modal */
+  overflow-y: auto; /* Barra de rolagem vertical */
+  word-break: break-word; /* Quebra palavras longas */
+  white-space: normal; /* Permite quebra de linha */
 }
 
 /* FOOTER */
@@ -183,4 +195,52 @@ footer {
 
 .contact-details p {
   margin-bottom: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  main {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9em;
+  }
+
+  .contact-form button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
 }
