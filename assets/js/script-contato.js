@@ -1,4 +1,4 @@
-document.getElementById("btn-enviar").addEventListener("click", function (event) {
+document.getElementById("btn-enviar").addEventListener("click", async function (event) {
   event.preventDefault();
 
   if (validateForm()) {
@@ -10,14 +10,15 @@ document.getElementById("btn-enviar").addEventListener("click", function (event)
     // Gerar um ID único para o pedido
     let id = "id-" + new Date().getTime();
 
-    // Salvar dados no LocalStorage
+    // Salvar dados no LocalStorage através da "API"
     let contactData = {
       id: id,
       name: name,
       email: email,
       description: description,
     };
-    localStorage.setItem(id, JSON.stringify(contactData));
+
+    await api.saveOrder(contactData);
 
     // Mostrar dados no modal
     let modal = document.getElementById("modal");
@@ -36,6 +37,9 @@ document.getElementById("btn-enviar").addEventListener("click", function (event)
 
     // Resetar formulário
     document.querySelector(".contact-form form").reset();
+
+    // Atualizar a lista de pedidos
+    updateOrderList();
   }
 });
 
@@ -72,3 +76,54 @@ window.addEventListener("click", function (event) {
     document.getElementById("modal").style.display = "none";
   }
 });
+
+// Atualiza a lista de pedidos exibidos
+async function updateOrderList() {
+  let orderList = document.getElementById("order-list");
+  orderList.innerHTML = ""; // Limpa a lista atual
+
+  let orders = await api.getOrders();
+
+  // Itera sobre todos os pedidos
+  orders.forEach(order => {
+    let orderItem = document.createElement("div");
+    orderItem.className = "order-item";
+    orderItem.innerHTML = `
+      <h3>ID: ${order.id}</h3>
+      <p><strong>Nome:</strong> ${order.name}</p>
+      <p><strong>E-mail:</strong> ${order.email}</p>
+      <p><strong>Descrição do pedido:</strong> ${order.description}</p>
+      <button onclick="editOrder('${order.id}')">Editar</button>
+      <button onclick="deleteOrder('${order.id}')">Deletar</button>
+    `;
+    orderList.appendChild(orderItem);
+  });
+}
+
+async function editOrder(id) {
+  let contactData = JSON.parse(localStorage.getItem(id));
+
+  // Preenche o formulário com os dados do pedido
+  document.getElementById("name").value = contactData.name;
+  document.getElementById("email").value = contactData.email;
+  document.getElementById("description").value = contactData.description;
+
+  // Remove o pedido do LocalStorage através da "API"
+  await api.removeOrder(id);
+
+  // Atualiza a lista de pedidos
+  updateOrderList();
+}
+
+async function deleteOrder(id) {
+  // Remove o pedido do LocalStorage através da "API"
+  await api.removeOrder(id);
+
+  // Atualiza a lista de pedidos
+  updateOrderList();
+}
+
+// Atualiza a lista de pedidos ao carregar a página
+window.onload = function () {
+  updateOrderList();
+};

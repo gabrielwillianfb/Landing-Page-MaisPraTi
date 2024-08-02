@@ -173,6 +173,48 @@ main {
   white-space: normal; /* Permite quebra de linha */
 }
 
+#orders {
+  margin-top: 30px;
+}
+
+#order-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.order-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.order-item h3 {
+  margin: 0 0 10px;
+  color: #ff6f8e;
+}
+
+.order-item p {
+  margin: 0 0 10px;
+  word-break: break-word;
+}
+
+.order-item button {
+  background-color: #ff6f8e;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-item button:hover {
+  background-color: #e85a75;
+}
+
+
 /* FOOTER */
 footer {
   background-color: #fff;
